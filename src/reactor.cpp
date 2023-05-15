@@ -2,7 +2,7 @@
 
 #include <utility>
 
-Reactor* Reactor::createReactor() {
+Reactor *Reactor::createReactor() {
     return new Reactor();
 }
 
@@ -34,3 +34,5 @@ void Reactor::WaitFor() {
         }
     }
 }
+
+Reactor::~Reactor() = default;

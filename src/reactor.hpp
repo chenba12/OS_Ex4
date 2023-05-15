@@ -28,5 +28,8 @@ public:
     void startReactor();
 
     void addFd(int fd, short events, handler_t handler);
+
+    ~Reactor();
 };
+
 #endif
