@@ -3,6 +3,9 @@
 #include <csignal>
 #include "src/reactor.hpp"
 
+
+#define PORT 9034
+
 // Handler function for processing client messages
 void handleClientMessage() {
     // Implement your server logic here
@@ -11,7 +14,7 @@ void handleClientMessage() {
 
 int main() {
     // Create Reactor instance
-    Reactor* reactor = Reactor::createReactor();
+    Reactor *reactor = Reactor::createReactor();
 
     // Create server socket
     int serverSocket = socket(AF_INET, SOCK_STREAM, 0);
@@ -24,10 +27,10 @@ int main() {
     // Bind the server socket to a port
     sockaddr_in serverAddress{};
     serverAddress.sin_family = AF_INET;
-    serverAddress.sin_port = htons(12345);  // Replace with your desired port number
+    serverAddress.sin_port = htons(PORT);
     serverAddress.sin_addr.s_addr = INADDR_ANY;
 
-    if (bind(serverSocket, reinterpret_cast<sockaddr*>(&serverAddress), sizeof(serverAddress)) == -1) {
+    if (bind(serverSocket, reinterpret_cast<sockaddr *>(&serverAddress), sizeof(serverAddress)) == -1) {
         std::cerr << "Failed to bind socket" << std::endl;
         close(serverSocket);
         delete reactor;
@@ -47,6 +50,7 @@ int main() {
 
     // Start the reactor
     reactor->startReactor();
+
 
     // Cleanup
     close(serverSocket);

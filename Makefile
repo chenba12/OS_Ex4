@@ -2,7 +2,7 @@ CC := g++
 CFLAGS := -std=c++17 -fPIC
 LDFLAGS := -shared
 LIBRARY := libst_reactor.so
-SERVER := server
+SERVER := react_server
 SRCDIR := src
 OBJDIR := obj
 SRCS := $(wildcard $(SRCDIR)/*.cpp)

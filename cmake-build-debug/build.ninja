@@ -49,17 +49,17 @@ cmake_ninja_workdir = /home/chen/CLionProjects/OS_Ex4/cmake-build-debug/
 
 build cmake_object_order_depends_target_OS_Ex4: phony || CMakeFiles/OS_Ex4.dir
 
-build CMakeFiles/OS_Ex4.dir/main.cpp.o: CXX_COMPILER__OS_Ex4_Debug /home/chen/CLionProjects/OS_Ex4/main.cpp || cmake_object_order_depends_target_OS_Ex4
-  DEP_FILE = CMakeFiles/OS_Ex4.dir/main.cpp.o.d
+build CMakeFiles/OS_Ex4.dir/server.cpp.o: CXX_COMPILER__OS_Ex4_Debug /home/chen/CLionProjects/OS_Ex4/server.cpp || cmake_object_order_depends_target_OS_Ex4
+  DEP_FILE = CMakeFiles/OS_Ex4.dir/server.cpp.o.d
   FLAGS = -g -fdiagnostics-color=always
   OBJECT_DIR = CMakeFiles/OS_Ex4.dir
   OBJECT_FILE_DIR = CMakeFiles/OS_Ex4.dir
 
-build CMakeFiles/OS_Ex4.dir/reactor.cpp.o: CXX_COMPILER__OS_Ex4_Debug /home/chen/CLionProjects/OS_Ex4/reactor.cpp || cmake_object_order_depends_target_OS_Ex4
-  DEP_FILE = CMakeFiles/OS_Ex4.dir/reactor.cpp.o.d
+build CMakeFiles/OS_Ex4.dir/src/reactor.cpp.o: CXX_COMPILER__OS_Ex4_Debug /home/chen/CLionProjects/OS_Ex4/src/reactor.cpp || cmake_object_order_depends_target_OS_Ex4
+  DEP_FILE = CMakeFiles/OS_Ex4.dir/src/reactor.cpp.o.d
   FLAGS = -g -fdiagnostics-color=always
   OBJECT_DIR = CMakeFiles/OS_Ex4.dir
-  OBJECT_FILE_DIR = CMakeFiles/OS_Ex4.dir
+  OBJECT_FILE_DIR = CMakeFiles/OS_Ex4.dir/src
 
 
 # =============================================================================
@@ -69,7 +69,7 @@ build CMakeFiles/OS_Ex4.dir/reactor.cpp.o: CXX_COMPILER__OS_Ex4_Debug /home/chen
 #############################################
 # Link the executable OS_Ex4
 
-build OS_Ex4: CXX_EXECUTABLE_LINKER__OS_Ex4_Debug CMakeFiles/OS_Ex4.dir/main.cpp.o CMakeFiles/OS_Ex4.dir/reactor.cpp.o
+build OS_Ex4: CXX_EXECUTABLE_LINKER__OS_Ex4_Debug CMakeFiles/OS_Ex4.dir/server.cpp.o CMakeFiles/OS_Ex4.dir/src/reactor.cpp.o
   FLAGS = -g
   OBJECT_DIR = CMakeFiles/OS_Ex4.dir
   POST_BUILD = :
