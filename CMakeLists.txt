@@ -3,4 +3,4 @@ project(OS_Ex4)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(OS_Ex4 server.cpp src/reactor.hpp src/reactor.cpp)
+add_executable(OS_Ex4 Reactor.hpp Reactor.cpp Server.cpp Server.hpp Main.cpp)

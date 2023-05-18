@@ -1,12 +1,11 @@
 CC := g++
 CFLAGS := -std=c++17 -fPIC
 LDFLAGS := -shared
+RPATH := -Wl,-rpath=./
 LIBRARY := libst_reactor.so
 SERVER := react_server
-SRCDIR := src
-OBJDIR := obj
-SRCS := $(wildcard $(SRCDIR)/*.cpp)
-OBJS := $(patsubst $(SRCDIR)/%.cpp,$(OBJDIR)/%.o,$(SRCS))
+SRCS := Reactor.cpp Server.cpp
+OBJS := $(SRCS:.cpp=.o)
 
 .PHONY: all clean
 
@@ -15,12 +14,11 @@ all: $(LIBRARY) $(SERVER)
 $(LIBRARY): $(OBJS)
 	$(CC) $(CFLAGS) $(LDFLAGS) -o $@ $^
 
-$(OBJDIR)/%.o: $(SRCDIR)/%.cpp
-	@mkdir -p $(OBJDIR)
+%.o: %.cpp
 	$(CC) $(CFLAGS) -c $< -o $@
 
-$(SERVER): $(SRCDIR)/server.cpp $(LIBRARY)
-	$(CC) $(CFLAGS) -o $@ $< -L. -lst_reactor
+$(SERVER): Main.cpp $(LIBRARY)
+	$(CC) $(CFLAGS) $(RPATH) -o $@ $< -L. -lst_reactor
 
 clean:
-	rm -rf $(OBJDIR) $(LIBRARY) $(SERVER)
+	rm -f $(OBJS) $(LIBRARY) $(SERVER)
