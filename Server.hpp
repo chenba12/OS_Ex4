@@ -7,6 +7,7 @@ class Server {
 private:
     Reactor reactor;
     int server_fd;
+    const int port = 9034;
 
 public:
     Server();
